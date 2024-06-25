@@ -1,0 +1,602 @@
+{
+  "4": {
+    "inputs": {
+      "ckpt_name": "picxReal_10.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "275",
+        1
+      ],
+      "vae": [
+        "275",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "20": {
+    "inputs": {
+      "width": [
+        "148",
+        0
+      ],
+      "height": [
+        "149",
+        0
+      ],
+      "batch_size": [
+        "302",
+        1
+      ]
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "148": {
+    "inputs": {
+      "value": 768
+    },
+    "class_type": "ImpactInt",
+    "_meta": {
+      "title": "ImpactInt"
+    }
+  },
+  "149": {
+    "inputs": {
+      "value": 512
+    },
+    "class_type": "ImpactInt",
+    "_meta": {
+      "title": "ImpactInt"
+    }
+  },
+  "268": {
+    "inputs": {
+      "text": "\"0\": \"(begin:`pw_a`),(silent:`pw_b`), (extreme long shot), profile of a tiger standing at the end of a hallway in an abandoned and dirty hotel long hallway, damp ground. Dark, dim, soft, moody lighting, cinematic photo, focus, film, professional, 4k, highly detailed, (at night)\",\n\"20\": \"(peak:`pw_a`),(sparkle:`pw_b`),a vibrant and lively Risograph of peonies in full bloom. Highly intricate detailing, texture detail, 8k, The medium should be hyper-realistic drawing, with a style reminiscent of Georgia O'Keeffe's floral paintings. The lighting should be bright and direct, highlighting the intricate details and vivid colors of the flowers. The colors should be a vibrant palette of pinks, whites, and greens, with a focus on the contrast between the flowers and the background.\",\n\"40\": \"(peak:`pw_a`),(silent:`pw_b`),create a surreal desert with alien plants, the plants are shaped like canary_yellow_perlwhite,are partially transparent with tentacles and spines, in the sand laying pearls,  backdrop is the storm of cosmic dust and cosmic clouds the heaven is dark colored unreal engine 6 color palette knives painting oel on canvas conzeptart , high qualty, cinema_stil, wide shot\"",
+      "max_frames": [
+        "302",
+        1
+      ],
+      "print_output": "RAW photo of korean woman, ",
+      "pre_text": [
+        "472",
+        0
+      ],
+      "app_text": [
+        "473",
+        0
+      ],
+      "start_frame": 0,
+      "pw_a": [
+        "380",
+        0
+      ],
+      "pw_b": [
+        "454",
+        0
+      ],
+      "pw_c": 0,
+      "pw_d": 0,
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "BatchPromptSchedule",
+    "_meta": {
+      "title": "Batch Prompt Schedule 📅🅕🅝"
+    }
+  },
+  "272": {
+    "inputs": {
+      "context_length": 16,
+      "context_stride": 1,
+      "context_overlap": 4,
+      "context_schedule": "uniform",
+      "closed_loop": false,
+      "fuse_method": "pyramid",
+      "use_on_equal_length": false,
+      "start_percent": 0,
+      "guarantee_steps": 1
+    },
+    "class_type": "ADE_AnimateDiffUniformContextOptions",
+    "_meta": {
+      "title": "Context Options◆Looped Uniform 🎭🅐🅓"
+    }
+  },
+  "273": {
+    "inputs": {
+      "model": [
+        "439",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ],
+      "vae": [
+        "4",
+        2
+      ],
+      "positive": [
+        "268",
+        0
+      ],
+      "negative": [
+        "436",
+        0
+      ]
+    },
+    "class_type": "ToBasicPipe",
+    "_meta": {
+      "title": "ToBasicPipe"
+    }
+  },
+  "274": {
+    "inputs": {
+      "model_name": "AnimateLCM_sd15_t2v.ckpt",
+      "beta_schedule": "lcm >> sqrt_linear",
+      "motion_scale": 1,
+      "apply_v2_models_properly": true,
+      "model": [
+        "276",
+        1
+      ],
+      "context_options": [
+        "272",
+        0
+      ]
+    },
+    "class_type": "ADE_AnimateDiffLoaderWithContext",
+    "_meta": {
+      "title": "AnimateDiff Loader [Legacy] 🎭🅐🅓①"
+    }
+  },
+  "275": {
+    "inputs": {
+      "seed": 243473551671312,
+      "steps": 11,
+      "cfg": 1,
+      "sampler_name": "lcm",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "basic_pipe": [
+        "278",
+        0
+      ],
+      "latent_image": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "ImpactKSamplerBasicPipe",
+    "_meta": {
+      "title": "KSampler (pipe)"
+    }
+  },
+  "276": {
+    "inputs": {
+      "basic_pipe": [
+        "273",
+        0
+      ]
+    },
+    "class_type": "FromBasicPipe_v2",
+    "_meta": {
+      "title": "FromBasicPipe_v2"
+    }
+  },
+  "278": {
+    "inputs": {
+      "basic_pipe": [
+        "276",
+        0
+      ],
+      "model": [
+        "274",
+        0
+      ],
+      "positive": [
+        "276",
+        4
+      ],
+      "negative": [
+        "276",
+        5
+      ]
+    },
+    "class_type": "EditBasicPipe",
+    "_meta": {
+      "title": "Edit BasicPipe"
+    }
+  },
+  "302": {
+    "inputs": {
+      "channel": 0,
+      "frames_per_second": [
+        "433",
+        0
+      ],
+      "start_at_frame": 0,
+      "limit_frames": 80,
+      "audio": [
+        "316",
+        0
+      ]
+    },
+    "class_type": "AudioToFFTs",
+    "_meta": {
+      "title": "Audio to FFTs"
+    }
+  },
+  "316": {
+    "inputs": {
+      "audio": "Caminos20Plata (1).mp3",
+      "choose file to upload": "Audio"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Load Audio"
+    }
+  },
+  "375": {
+    "inputs": {
+      "operation": "avg",
+      "lower_band_range": 20,
+      "upper_band_range": 1000,
+      "audio_fft": [
+        "302",
+        0
+      ]
+    },
+    "class_type": "BatchAmplitudeSchedule",
+    "_meta": {
+      "title": "Batch Amplitude Schedule"
+    }
+  },
+  "376": {
+    "inputs": {
+      "invert_normalized": false,
+      "amplitude": [
+        "375",
+        0
+      ]
+    },
+    "class_type": "NormalizeAmplitude",
+    "_meta": {
+      "title": "Normalize Amplitude"
+    }
+  },
+  "377": {
+    "inputs": {
+      "gate_normalized": 0,
+      "normalized_amp": [
+        "376",
+        0
+      ]
+    },
+    "class_type": "GateNormalizedAmplitude",
+    "_meta": {
+      "title": "Gate Normalized Amplitude"
+    }
+  },
+  "378": {
+    "inputs": {
+      "normalized_amp": [
+        "377",
+        0
+      ]
+    },
+    "class_type": "NormalizedAmplitudeToGraph",
+    "_meta": {
+      "title": "Normalized Amplitude To Graph"
+    }
+  },
+  "379": {
+    "inputs": {
+      "images": [
+        "378",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "380": {
+    "inputs": {
+      "add_to": 0,
+      "threshold_for_add": 0,
+      "add_ceiling": 1,
+      "normalized_amp": [
+        "377",
+        0
+      ]
+    },
+    "class_type": "NormalizedAmplitudeToNumber",
+    "_meta": {
+      "title": "Normalized Amplitude To Float or Int"
+    }
+  },
+  "404": {
+    "inputs": {
+      "channel": 0,
+      "lower_band_range": 1000,
+      "upper_band_range": 4000,
+      "audio": [
+        "316",
+        0
+      ]
+    },
+    "class_type": "AudioToAmplitudeGraph",
+    "_meta": {
+      "title": "Audio to Amplitude Graph"
+    }
+  },
+  "405": {
+    "inputs": {
+      "images": [
+        "404",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "433": {
+    "inputs": {
+      "value": 12
+    },
+    "class_type": "ImpactInt",
+    "_meta": {
+      "title": "ImpactInt"
+    }
+  },
+  "436": {
+    "inputs": {
+      "text": "nude, nsfw, canvas frame, out-of-frame, ugly, cross-eyed, woman, person",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "437": {
+    "inputs": {
+      "frame_rate": 12,
+      "loop_count": 0,
+      "filename_prefix": "Audio-Reactive_882218634696710/song2vid",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 19,
+      "save_metadata": true,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "8",
+        0
+      ],
+      "audio": [
+        "438",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
+    }
+  },
+  "438": {
+    "inputs": {
+      "audio_file": "C:\\Users\\jairc\\Downloads\\Whispers in the Wires.mp3",
+      "seek_seconds": 0
+    },
+    "class_type": "VHS_LoadAudio",
+    "_meta": {
+      "title": "Load Audio (Path)🎥🅥🅗🅢"
+    }
+  },
+  "439": {
+    "inputs": {
+      "lora_name": "sd15_lora_beta.safetensors",
+      "strength_model": 1,
+      "model": [
+        "476",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoraLoaderModelOnly"
+    }
+  },
+  "445": {
+    "inputs": {
+      "channel": 0,
+      "frames_per_second": [
+        "433",
+        0
+      ],
+      "start_at_frame": 0,
+      "limit_frames": 80,
+      "audio": [
+        "316",
+        0
+      ]
+    },
+    "class_type": "AudioToFFTs",
+    "_meta": {
+      "title": "Audio to FFTs"
+    }
+  },
+  "447": {
+    "inputs": {
+      "channel": 0,
+      "lower_band_range": 20,
+      "upper_band_range": 1000,
+      "audio": [
+        "316",
+        0
+      ]
+    },
+    "class_type": "AudioToAmplitudeGraph",
+    "_meta": {
+      "title": "Audio to Amplitude Graph"
+    }
+  },
+  "448": {
+    "inputs": {
+      "images": [
+        "447",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "449": {
+    "inputs": {
+      "operation": "avg",
+      "lower_band_range": 1000,
+      "upper_band_range": 4000,
+      "audio_fft": [
+        "445",
+        0
+      ]
+    },
+    "class_type": "BatchAmplitudeSchedule",
+    "_meta": {
+      "title": "Batch Amplitude Schedule"
+    }
+  },
+  "450": {
+    "inputs": {
+      "invert_normalized": false,
+      "amplitude": [
+        "449",
+        0
+      ]
+    },
+    "class_type": "NormalizeAmplitude",
+    "_meta": {
+      "title": "Normalize Amplitude"
+    }
+  },
+  "451": {
+    "inputs": {
+      "gate_normalized": 0,
+      "normalized_amp": [
+        "450",
+        0
+      ]
+    },
+    "class_type": "GateNormalizedAmplitude",
+    "_meta": {
+      "title": "Gate Normalized Amplitude"
+    }
+  },
+  "452": {
+    "inputs": {
+      "normalized_amp": [
+        "451",
+        0
+      ]
+    },
+    "class_type": "NormalizedAmplitudeToGraph",
+    "_meta": {
+      "title": "Normalized Amplitude To Graph"
+    }
+  },
+  "453": {
+    "inputs": {
+      "images": [
+        "452",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "454": {
+    "inputs": {
+      "add_to": 0,
+      "threshold_for_add": 0,
+      "add_ceiling": 1,
+      "normalized_amp": [
+        "451",
+        0
+      ]
+    },
+    "class_type": "NormalizedAmplitudeToNumber",
+    "_meta": {
+      "title": "Normalized Amplitude To Float or Int"
+    }
+  },
+  "472": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "yes",
+      "text_a": " ",
+      "text_b": "",
+      "text_c": "",
+      "result": " "
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "473": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "yes",
+      "text_a": " ",
+      "text_b": "",
+      "text_c": "",
+      "result": " "
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "476": {
+    "inputs": {
+      "b1": 0.9,
+      "b2": 0.9,
+      "s1": 0.9,
+      "s2": 0.2,
+      "model": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "FreeU_V2",
+    "_meta": {
+      "title": "FreeU_V2"
+    }
+  }
+}

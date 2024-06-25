@@ -1,0 +1,438 @@
+{
+  "63": {
+    "inputs": {
+      "image": [
+        "130",
+        0
+      ],
+      "vae": [
+        "64",
+        4
+      ],
+      "latent_size": [
+        "64",
+        3
+      ]
+    },
+    "class_type": "ACN_SparseCtrlRGBPreprocessor",
+    "_meta": {
+      "title": "RGB SparseCtrl 🛂🅐🅒🅝"
+    }
+  },
+  "64": {
+    "inputs": {
+      "ckpt_name": "dreamshaper_8.safetensors",
+      "vae_name": "Baked VAE",
+      "clip_skip": -2,
+      "lora_name": "None",
+      "lora_model_strength": 1,
+      "lora_clip_strength": 0,
+      "positive": "Sauron from LOTR in his elven form in flames and smoke in naruto anime drawing art style, watercolor, with a dark background",
+      "negative": "nfsw, nude, naked, nipples",
+      "token_normalization": "none",
+      "weight_interpretation": "comfy",
+      "empty_latent_width": 512,
+      "empty_latent_height": 512,
+      "batch_size": 24
+    },
+    "class_type": "Efficient Loader",
+    "_meta": {
+      "title": "Efficient Loader"
+    }
+  },
+  "65": {
+    "inputs": {
+      "sparsectrl_name": "SD1.5\\animatediff\\v3_sd15_sparsectrl_rgb.ckpt",
+      "use_motion": true,
+      "motion_strength": 1,
+      "motion_scale": 1,
+      "sparse_method": [
+        "68",
+        0
+      ]
+    },
+    "class_type": "ACN_SparseCtrlLoaderAdvanced",
+    "_meta": {
+      "title": "Load SparseCtrl Model 🛂🅐🅒🅝"
+    }
+  },
+  "66": {
+    "inputs": {
+      "strength": 0.9,
+      "start_percent": 0,
+      "end_percent": 0.45,
+      "positive": [
+        "64",
+        1
+      ],
+      "negative": [
+        "64",
+        2
+      ],
+      "control_net": [
+        "65",
+        0
+      ],
+      "image": [
+        "63",
+        0
+      ]
+    },
+    "class_type": "ACN_AdvancedControlNetApply",
+    "_meta": {
+      "title": "Apply Advanced ControlNet 🛂🅐🅒🅝"
+    }
+  },
+  "68": {
+    "inputs": {
+      "spread": "uniform"
+    },
+    "class_type": "ACN_SparseCtrlSpreadMethodNode",
+    "_meta": {
+      "title": "SparseCtrl Spread Method 🛂🅐🅒🅝"
+    }
+  },
+  "70": {
+    "inputs": {
+      "motion_model": [
+        "71",
+        0
+      ],
+      "motion_lora": [
+        "106",
+        0
+      ]
+    },
+    "class_type": "ADE_ApplyAnimateDiffModelSimple",
+    "_meta": {
+      "title": "Apply AnimateDiff Model 🎭🅐🅓②"
+    }
+  },
+  "71": {
+    "inputs": {
+      "model_name": "sd15_t2v_beta.ckpt"
+    },
+    "class_type": "ADE_LoadAnimateDiffModel",
+    "_meta": {
+      "title": "Load AnimateDiff Model 🎭🅐🅓②"
+    }
+  },
+  "72": {
+    "inputs": {
+      "beta_schedule": "sqrt_linear (AnimateDiff)",
+      "model": [
+        "105",
+        0
+      ],
+      "m_models": [
+        "70",
+        0
+      ],
+      "context_options": [
+        "73",
+        0
+      ],
+      "sample_settings": [
+        "74",
+        0
+      ]
+    },
+    "class_type": "ADE_UseEvolvedSampling",
+    "_meta": {
+      "title": "Use Evolved Sampling 🎭🅐🅓②"
+    }
+  },
+  "73": {
+    "inputs": {
+      "context_length": 16,
+      "context_stride": 1,
+      "context_overlap": 6,
+      "closed_loop": true,
+      "fuse_method": "flat",
+      "use_on_equal_length": true,
+      "start_percent": 0,
+      "guarantee_steps": 1
+    },
+    "class_type": "ADE_LoopedUniformContextOptions",
+    "_meta": {
+      "title": "Context Options◆Looped Uniform 🎭🅐🅓"
+    }
+  },
+  "74": {
+    "inputs": {
+      "batch_offset": 0,
+      "noise_type": "FreeNoise",
+      "seed_gen": "comfy",
+      "seed_offset": 0,
+      "adapt_denoise_steps": false
+    },
+    "class_type": "ADE_AnimateDiffSamplingSettings",
+    "_meta": {
+      "title": "Sample Settings 🎭🅐🅓"
+    }
+  },
+  "82": {
+    "inputs": {
+      "seed": 880555907563679,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "lcm",
+      "scheduler": "sgm_uniform",
+      "denoise": 0.45,
+      "preview_method": "taesd",
+      "vae_decode": "true",
+      "model": [
+        "72",
+        0
+      ],
+      "positive": [
+        "66",
+        0
+      ],
+      "negative": [
+        "66",
+        1
+      ],
+      "latent_image": [
+        "88",
+        0
+      ],
+      "optional_vae": [
+        "64",
+        4
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "88": {
+    "inputs": {
+      "pixels": [
+        "80:2",
+        0
+      ],
+      "vae": [
+        "64",
+        4
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "90": {
+    "inputs": {
+      "ckpt_name": "rife47.pth",
+      "clear_cache_after_n_frames": 320,
+      "multiplier": 4,
+      "fast_mode": true,
+      "ensemble": true,
+      "scale_factor": 4,
+      "frames": [
+        "94",
+        0
+      ]
+    },
+    "class_type": "RIFE VFI",
+    "_meta": {
+      "title": "RIFE VFI (recommend rife47 and rife49)"
+    }
+  },
+  "91": {
+    "inputs": {
+      "frame_rate": 32,
+      "loop_count": 0,
+      "filename_prefix": "2024-04-07/interpolated/AD_880555907563679",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 19,
+      "save_metadata": true,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "90",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
+    }
+  },
+  "93": {
+    "inputs": {
+      "selected_indexes": "0",
+      "images": [
+        "82",
+        5
+      ]
+    },
+    "class_type": "ImageSelector",
+    "_meta": {
+      "title": "ImageSelector"
+    }
+  },
+  "94": {
+    "inputs": {
+      "image1": [
+        "93",
+        0
+      ],
+      "image2": [
+        "82",
+        5
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "Batch Images"
+    }
+  },
+  "97": {
+    "inputs": {
+      "clip_name": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+    },
+    "class_type": "CLIPVisionLoader",
+    "_meta": {
+      "title": "Load CLIP Vision"
+    }
+  },
+  "98": {
+    "inputs": {
+      "ipadapter_file": "ip-adapter_sd15.safetensors"
+    },
+    "class_type": "IPAdapterModelLoader",
+    "_meta": {
+      "title": "IPAdapter Model Loader"
+    }
+  },
+  "105": {
+    "inputs": {
+      "lora_name": "sd15_lora_beta.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "129",
+        0
+      ],
+      "clip": [
+        "64",
+        5
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "106": {
+    "inputs": {
+      "lora_name": "v2_lora_ZoomIn.ckpt",
+      "strength": 0.6
+    },
+    "class_type": "ADE_AnimateDiffLoRALoader",
+    "_meta": {
+      "title": "Load AnimateDiff LoRA 🎭🅐🅓"
+    }
+  },
+  "129": {
+    "inputs": {
+      "weight": 1,
+      "weight_type": "linear",
+      "start_at": 0,
+      "end_at": 1,
+      "sharpening": 0,
+      "embeds_scaling": "V only",
+      "model": [
+        "64",
+        0
+      ],
+      "ipadapter": [
+        "98",
+        0
+      ],
+      "image": [
+        "130",
+        0
+      ],
+      "clip_vision": [
+        "97",
+        0
+      ]
+    },
+    "class_type": "IPAdapterTiledBatch",
+    "_meta": {
+      "title": "IPAdapter Tiled Batch"
+    }
+  },
+  "130": {
+    "inputs": {
+      "video": "AD__00370.mp4",
+      "force_rate": 0,
+      "force_size": "Disabled",
+      "custom_width": 512,
+      "custom_height": 512,
+      "frame_load_cap": 0,
+      "skip_first_frames": 0,
+      "select_every_nth": 1
+    },
+    "class_type": "VHS_LoadVideo",
+    "_meta": {
+      "title": "Load Video (Upload) 🎥🅥🅗🅢"
+    }
+  },
+  "132": {
+    "inputs": {
+      "images": [
+        "82",
+        5
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "80:0": {
+    "inputs": {
+      "model_name": "4x_NMKD-Siax_200k.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "80:1": {
+    "inputs": {
+      "upscale_model": [
+        "80:0",
+        0
+      ],
+      "image": [
+        "130",
+        0
+      ]
+    },
+    "class_type": "ImageUpscaleWithModel",
+    "_meta": {
+      "title": "Upscale Image (using Model)"
+    }
+  },
+  "80:2": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "scale_by": 0.38,
+      "image": [
+        "80:1",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy",
+    "_meta": {
+      "title": "Upscale Image By"
+    }
+  }
+}

@@ -1,0 +1,706 @@
+{
+  "4": {
+    "inputs": {
+      "ckpt_name": "amalgamationSD15_v20.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "275",
+        1
+      ],
+      "vae": [
+        "275",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "20": {
+    "inputs": {
+      "width": [
+        "148",
+        0
+      ],
+      "height": [
+        "149",
+        0
+      ],
+      "batch_size": [
+        "302",
+        1
+      ]
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "148": {
+    "inputs": {
+      "value": 768
+    },
+    "class_type": "ImpactInt",
+    "_meta": {
+      "title": "Width"
+    }
+  },
+  "149": {
+    "inputs": {
+      "value": 512
+    },
+    "class_type": "ImpactInt",
+    "_meta": {
+      "title": "Height"
+    }
+  },
+  "268": {
+    "inputs": {
+      "text": "\"0\": \"(begin:`pw_a`),(silent:`pw_b`), Wistful wanderers traverse the windswept terrain, souls exposed like autumn leaves stripped of their vibrant hues, as they cling to memories carried on whispers of breeze. Golden light casts long shadows across the rust-red landscape, where ancient trees stand sentinel, their gnarled branches etched against a sky of softest blue. In the distance, a lone cypress rises like a dark, slender finger, reaching for the heavens as the wanderers' footsteps fade into the horizon's haze.\",\n\"108\": \"(peak:`pw_a`),(sparkle:`pw_b`), Two wanderers, their bare souls exposed to the elements, walk hand in hand along a worn dirt path, the wind carrying whispers of forgotten memories. The sky above is a soft blend of blue and gray, with wispy clouds scattered like cotton candy tufts. As they stroll, the silence between them is palpable, yet somehow comforting. In the distance, a lone tree stands sentinel, its branches etched against the sky like a delicate pen and ink drawing.\n\nTo the left, a hill rises, covered in a tapestry of golden grasses that seem to undulate in the breeze like a gentle wave. The air is filled with the sweet scent of blooming wildflowers, their colors muted to shades of lavender and peach. A few scattered stones dot the landscape, worn smooth by time and weather.\n\nThe camera pans down to reveal the wanderers' feet, bare and dusty, as they disappear into the distance, leaving behind only the faintest hint of a trail. The silence is almost audible, a palpable force that wraps around the scene like a gentle embrace.\",\n\"180\": \"(peak:`pw_a`),(glisten:`pw_b`), Moonlit path unwinds like a silver ribbon, guitars echoing through the night air as memories settle softly with the wind. In this ethereal scene, silence is not oppressive, but rather a gentle companion that whispers secrets to those who listen. The camera pans down to reveal a lone traveler, a figure cloaked in misty shadows, following the melodic trail beneath the lunar glow. As they wander, the guitars lead them through an ever-changing landscape of moon-kissed hills and valleys, where stars twinkle like diamonds scattered across the velvet expanse. In the distance, a great tree stands sentinel, its branches etched against the sky like a delicate silver pen and ink drawing.\",\n\"264\": \"(peak:`pw_a`),(twinkle:`pw_b`), Moonlit Pathways of Silver: Guitars Lead Us Through Whispering Silence Under a Celestial Canopy   \n\nSilent pathways unfold like a silver river, guided by the gentle strumming of guitars. The lunar glow casts an ethereal light on the landscape, where shadows dance and whisper secrets to the wind. Amidst this mystical atmosphere, the silence is palpable, yet it holds a profound wisdom. Guitars weav their melodic threads through the stillness, leading us on a journey of introspection under the watchful eye of the celestial vault.\",\n\"420\": \"(peak:`pw_a`),(quiet:`pw_b`), \"Moonlit silver paths unfurl beneath a canvas of star-kissed night, as two wandering travelers follow the gentle guidance of guitars carried on worn leather straps. Silvery threads weave a tapestry of melody, as the pair ambles without concern, their footsteps light as whispers in the stillness. The landscape stretches out before them like a serene ocean, dotted with cypress trees that seem to whisper ancient secrets to the wind.\"\",\n\"552\": \"(peak:`pw_a`),(silent:`pw_b`), Under the silvery glow of a full moon, a lone wanderer treks across a desolate, moonlit landscape, with no need for fleeting lights or transitory glories. The traveler's footsteps are light and effortless, as if carried by the gentle night breeze. In the distance, a range of rugged mountains stretches out like dark, serrated teeth, their peaks still capped with wisps of cloud. A scattering of stars twinkles above, a celestial map guiding the wanderer's journey.\n\nIn this ethereal setting, the shadows themselves seem to have taken on a life of their own, twisting and curling like dark, liquid tendrils across the dusty terrain. The only sound is the soft crunch of gravel beneath the traveler's feet, and the distant hooting of an owl, its call echoing through the stillness like a mournful sigh.\n\nAs the wanderer walks, the landscape begins to take on a dreamlike quality, with rock formations assuming strange, surreal shapes, as if they too were being sculpted by the moon's silvery light. The air is cool and crisp, filled with the scent of dry earth and ozone, carrying the promise of adventure and discovery to the horizon.\",\n\"636\": \"(end:`pw_a`),(glisten:`pw_b`), A midnight stroll beneath a crescent moon casts an ethereal glow upon two friends wandering hand in hand through a lush meadow, their footsteps silent as they revel in each other's company. The sky above is ablaze with stars, like diamonds scattered across the velvet expanse. As they walk, wildflowers sway gently in the breeze, releasing a sweet fragrance that wafts around them. The landscape stretches out before them, a tapestry of greens and golds, punctuated by ancient trees that stand sentinel against the night sky.\"",
+      "max_frames": [
+        "302",
+        1
+      ],
+      "print_output": "RAW photo of korean woman, ",
+      "pre_text": [
+        "472",
+        0
+      ],
+      "app_text": [
+        "473",
+        0
+      ],
+      "start_frame": 0,
+      "pw_a": [
+        "380",
+        0
+      ],
+      "pw_b": [
+        "458",
+        0
+      ],
+      "pw_c": 0,
+      "pw_d": 0,
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "BatchPromptSchedule",
+    "_meta": {
+      "title": "CLIP Positive Prompt Traveling"
+    }
+  },
+  "272": {
+    "inputs": {
+      "context_length": 16,
+      "context_stride": 1,
+      "context_overlap": 4,
+      "context_schedule": "uniform",
+      "closed_loop": false,
+      "fuse_method": "pyramid",
+      "use_on_equal_length": false,
+      "start_percent": 0,
+      "guarantee_steps": 1
+    },
+    "class_type": "ADE_AnimateDiffUniformContextOptions",
+    "_meta": {
+      "title": "Context Options◆Looped Uniform 🎭🅐🅓"
+    }
+  },
+  "273": {
+    "inputs": {
+      "model": [
+        "439",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ],
+      "vae": [
+        "4",
+        2
+      ],
+      "positive": [
+        "268",
+        0
+      ],
+      "negative": [
+        "436",
+        0
+      ]
+    },
+    "class_type": "ToBasicPipe",
+    "_meta": {
+      "title": "ToBasicPipe"
+    }
+  },
+  "274": {
+    "inputs": {
+      "model_name": "AnimateLCM_sd15_t2v.ckpt",
+      "beta_schedule": "lcm >> sqrt_linear",
+      "motion_scale": 1,
+      "apply_v2_models_properly": true,
+      "model": [
+        "276",
+        1
+      ],
+      "context_options": [
+        "272",
+        0
+      ]
+    },
+    "class_type": "ADE_AnimateDiffLoaderWithContext",
+    "_meta": {
+      "title": "AnimateDiff Loader [Legacy] 🎭🅐🅓①"
+    }
+  },
+  "275": {
+    "inputs": {
+      "seed": 434779390801032,
+      "steps": 11,
+      "cfg": 1,
+      "sampler_name": "lcm",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "basic_pipe": [
+        "278",
+        0
+      ],
+      "latent_image": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "ImpactKSamplerBasicPipe",
+    "_meta": {
+      "title": "KSampler (pipe)"
+    }
+  },
+  "276": {
+    "inputs": {
+      "basic_pipe": [
+        "273",
+        0
+      ]
+    },
+    "class_type": "FromBasicPipe_v2",
+    "_meta": {
+      "title": "FromBasicPipe_v2"
+    }
+  },
+  "278": {
+    "inputs": {
+      "basic_pipe": [
+        "276",
+        0
+      ],
+      "model": [
+        "274",
+        0
+      ],
+      "positive": [
+        "276",
+        4
+      ]
+    },
+    "class_type": "EditBasicPipe",
+    "_meta": {
+      "title": "Edit BasicPipe"
+    }
+  },
+  "302": {
+    "inputs": {
+      "channel": 0,
+      "frames_per_second": [
+        "433",
+        0
+      ],
+      "start_at_frame": 0,
+      "limit_frames": 480,
+      "audio": [
+        "316",
+        0
+      ]
+    },
+    "class_type": "AudioToFFTs",
+    "_meta": {
+      "title": "Audio to FFTs"
+    }
+  },
+  "316": {
+    "inputs": {
+      "audio": "Caminos20Plata (1).mp3",
+      "choose file to upload": "Audio"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Load Audio"
+    }
+  },
+  "375": {
+    "inputs": {
+      "operation": "avg",
+      "lower_band_range": 20,
+      "upper_band_range": 1000,
+      "audio_fft": [
+        "302",
+        0
+      ]
+    },
+    "class_type": "BatchAmplitudeSchedule",
+    "_meta": {
+      "title": "Batch Amplitude Schedule"
+    }
+  },
+  "376": {
+    "inputs": {
+      "invert_normalized": false,
+      "amplitude": [
+        "375",
+        0
+      ]
+    },
+    "class_type": "NormalizeAmplitude",
+    "_meta": {
+      "title": "Normalize Amplitude"
+    }
+  },
+  "377": {
+    "inputs": {
+      "gate_normalized": 0,
+      "normalized_amp": [
+        "376",
+        0
+      ]
+    },
+    "class_type": "GateNormalizedAmplitude",
+    "_meta": {
+      "title": "Gate Normalized Amplitude"
+    }
+  },
+  "378": {
+    "inputs": {
+      "normalized_amp": [
+        "377",
+        0
+      ]
+    },
+    "class_type": "NormalizedAmplitudeToGraph",
+    "_meta": {
+      "title": "Normalized Amplitude To Graph"
+    }
+  },
+  "379": {
+    "inputs": {
+      "images": [
+        "378",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "380": {
+    "inputs": {
+      "add_to": 0,
+      "threshold_for_add": 0,
+      "add_ceiling": 1,
+      "normalized_amp": [
+        "377",
+        0
+      ]
+    },
+    "class_type": "NormalizedAmplitudeToNumber",
+    "_meta": {
+      "title": "Normalized Amplitude To Float or Int"
+    }
+  },
+  "404": {
+    "inputs": {
+      "channel": 0,
+      "lower_band_range": 1000,
+      "upper_band_range": 4000,
+      "audio": [
+        "316",
+        0
+      ]
+    },
+    "class_type": "AudioToAmplitudeGraph",
+    "_meta": {
+      "title": "Audio to Amplitude Graph"
+    }
+  },
+  "405": {
+    "inputs": {
+      "images": [
+        "404",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "433": {
+    "inputs": {
+      "value": 12
+    },
+    "class_type": "ImpactInt",
+    "_meta": {
+      "title": "Frames per Second"
+    }
+  },
+  "436": {
+    "inputs": {
+      "text": "nude, nsfw, canvas frame, cartoon, 3d, out-of-frame, ugly, cross-eyed, woman, person",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "437": {
+    "inputs": {
+      "frame_rate": 12,
+      "loop_count": 0,
+      "filename_prefix": "Audio-Reactive",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 19,
+      "save_metadata": true,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "8",
+        0
+      ],
+      "audio": [
+        "438",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
+    }
+  },
+  "438": {
+    "inputs": {
+      "audio_file": "C:\\Users\\jairc\\Downloads\\Caminos20Plata.mp3",
+      "seek_seconds": 0
+    },
+    "class_type": "VHS_LoadAudio",
+    "_meta": {
+      "title": "Load Audio (Path)🎥🅥🅗🅢"
+    }
+  },
+  "439": {
+    "inputs": {
+      "lora_name": "sd15_lora_beta.safetensors",
+      "strength_model": 1,
+      "model": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoraLoaderModelOnly"
+    }
+  },
+  "445": {
+    "inputs": {
+      "channel": 0,
+      "frames_per_second": [
+        "462",
+        0
+      ],
+      "start_at_frame": 0,
+      "limit_frames": 480,
+      "audio": [
+        "460",
+        0
+      ]
+    },
+    "class_type": "AudioToFFTs",
+    "_meta": {
+      "title": "Audio to FFTs"
+    }
+  },
+  "447": {
+    "inputs": {
+      "channel": 0,
+      "lower_band_range": 20,
+      "upper_band_range": 1000,
+      "audio": [
+        "316",
+        0
+      ]
+    },
+    "class_type": "AudioToAmplitudeGraph",
+    "_meta": {
+      "title": "Audio to Amplitude Graph"
+    }
+  },
+  "448": {
+    "inputs": {
+      "images": [
+        "447",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "449": {
+    "inputs": {
+      "operation": "avg",
+      "lower_band_range": 1000,
+      "upper_band_range": 4000,
+      "audio_fft": [
+        "464",
+        0
+      ]
+    },
+    "class_type": "BatchAmplitudeSchedule",
+    "_meta": {
+      "title": "Batch Amplitude Schedule"
+    }
+  },
+  "450": {
+    "inputs": {
+      "invert_normalized": false,
+      "amplitude": [
+        "449",
+        0
+      ]
+    },
+    "class_type": "NormalizeAmplitude",
+    "_meta": {
+      "title": "Normalize Amplitude"
+    }
+  },
+  "451": {
+    "inputs": {
+      "gate_normalized": 0,
+      "normalized_amp": [
+        "450",
+        0
+      ]
+    },
+    "class_type": "GateNormalizedAmplitude",
+    "_meta": {
+      "title": "Gate Normalized Amplitude"
+    }
+  },
+  "452": {
+    "inputs": {
+      "normalized_amp": [
+        "451",
+        0
+      ]
+    },
+    "class_type": "NormalizedAmplitudeToGraph",
+    "_meta": {
+      "title": "Normalized Amplitude To Graph"
+    }
+  },
+  "454": {
+    "inputs": {
+      "add_to": 0,
+      "threshold_for_add": 0,
+      "add_ceiling": 1,
+      "normalized_amp": [
+        "456",
+        0
+      ]
+    },
+    "class_type": "NormalizedAmplitudeToNumber",
+    "_meta": {
+      "title": "Normalized Amplitude To Float or Int"
+    }
+  },
+  "455": {
+    "inputs": {
+      "name": "normalizedAmp",
+      "tweak": false,
+      "NORMALIZED_AMPLITUDE": [
+        "451",
+        0
+      ]
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "456": {
+    "inputs": {
+      "name": "normalizedAmp"
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "457": {
+    "inputs": {
+      "name": "pwB",
+      "tweak": false,
+      "FLOAT": [
+        "454",
+        0
+      ]
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "458": {
+    "inputs": {
+      "name": "pwB"
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "459": {
+    "inputs": {
+      "name": "audio",
+      "tweak": false,
+      "AUDIO": [
+        "316",
+        0
+      ]
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "460": {
+    "inputs": {
+      "name": "audio"
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "461": {
+    "inputs": {
+      "name": "framesPerSecond",
+      "tweak": false,
+      "INT": [
+        "433",
+        0
+      ]
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "462": {
+    "inputs": {
+      "name": "framesPerSecond"
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "463": {
+    "inputs": {
+      "name": "audioFft",
+      "tweak": false,
+      "AUDIO_FFT": [
+        "445",
+        0
+      ]
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "464": {
+    "inputs": {
+      "name": "audioFft"
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "465": {
+    "inputs": {
+      "name": "images",
+      "tweak": false,
+      "IMAGE": [
+        "452",
+        0
+      ]
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "466": {
+    "inputs": {
+      "name": "images"
+    },
+    "class_type": "mape Variable",
+    "_meta": {
+      "title": "mape Variable"
+    }
+  },
+  "472": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "yes",
+      "text_a": "",
+      "text_b": "",
+      "text_c": ""
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "473": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "yes",
+      "text_a": "",
+      "text_b": "",
+      "text_c": ""
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  }
+}
